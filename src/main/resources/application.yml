@@ -1,1 +1,21 @@
-
+# Based on org.keycloak.adapters.springboot.KeycloakSpringBootProperties
+keycloak:
+  enabled: true
+  auth-server-url: http://localhost:8180/auth/
+  realm: Capitalisation
+  resource: sso-training-spring-boot
+  bearer-only: true
+  ssl-required: external
+  securityConstraints:
+  - authRoles:
+    - Listing_Product
+    securityCollections:
+    - name: Rest API
+      patterns:
+      - /rest/*
+  - authRoles:
+    - admin
+    securityCollections:
+    - name: admin stuff
+      patterns:
+      - /admin
